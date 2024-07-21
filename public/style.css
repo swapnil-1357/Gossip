@@ -1,0 +1,43 @@
+#main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("./public/chatui4.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+}
+
+#box {
+    padding: 3rem;
+    /* From https://css.glass */
+    background: rgba(16, 190, 254, 0.37);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5.3px);
+    -webkit-backdrop-filter: blur(5.3px);
+    border: 1px solid rgba(16, 190, 254, 0.25);
+}
+
+@media screen and (max-width: 1240px) {
+    #image {
+        visibility: none;
+        /* height: 0;
+       width: 0; */
+
+    }
+
+    #main {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        /* border: 5px solid black; */
+    }
+
+    #box {
+        padding: 6rem;
+        width: 500px;
+        /* border: 5px solid black; */
+    }
+}

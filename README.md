@@ -1,0 +1,1 @@
+IT is a fully functional chat app. where you should enter the room name and user name to enter the chat room and get connected the all the members of that room then you will get the chance to chat with them..
