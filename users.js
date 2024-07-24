@@ -7,15 +7,13 @@ const userJoin = (id, name, room) => {
 }
 
 const getUser = (id) => {
-    let obj = allUsers.find(user => user.id === id)
-    return obj
+    return allUsers.find(user => user.id === id)
 }
 
 const userLeft = (id) => {
     const index = allUsers.findIndex(user => user.id === id)
-
-    if (index != -1) {  
-        return allUsers.splice(index, 1)[0];
+    if (index !== -1) {
+        return allUsers.splice(index, 1)[0]
     }
 }
 

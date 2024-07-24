@@ -1,6 +1,11 @@
-const formatMessage = (user, id, msg) => {
-    let obj = { user, msg, id }
-    return obj;
+
+const formatMessage = (username, id, text) => {
+    return {
+        username,
+        id,
+        text,
+        time: new Date().toISOString().slice(0, 19).replace('T', ' ')
+    }
 }
 
 module.exports = formatMessage

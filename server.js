@@ -2,14 +2,12 @@ const express = require('express')
 const path = require('path')
 const http = require('http')
 const formatMessage = require('./message')
-const { userJoin, getUser, userLeft } = require('./users');
+const { userJoin, getUser, userLeft } = require('./users')
 
 const app = express()
 const server = http.createServer(app)
-
 const bodyparser = require('body-parser')
-
-const { Server } = require('socket.io');
+const { Server } = require('socket.io')
 const io = new Server(server)
 
 const bot = 'GossiBot'
@@ -23,31 +21,21 @@ app.use(express.static('public'))
 
 // route handling
 app.get('/', (req, res) => {
-    // res.sendFile(path.join(__dirname + ('/index.html')))
     res.render("index")
 })
 
-// app.get('/chat', (req, res) => {
-//     console.log(req.body)
-//     // res.sendFile(path.join(__dirname + ('/chat.html')))
-//     res.render("chat")
-// })
-
 app.post('/join', (req, res) => {
     const { user, room } = req.body
-    res.render("chat",{
-        username:user,
-        roomname:room,
-
+    res.render("chat", {
+        username: user,
+        roomname: room,
     })
 })
 
-
 io.on('connection', (socket) => {
-    console.log('a user connected : ' + socket, socket.id)
+    console.log('a user connected: ' + socket.id)
 
     socket.on('user-joined', (newUser) => {
-        console.log(newUser)
         const user = userJoin(socket.id, newUser.username, newUser.roomname)
         socket.join(user.room)
         console.log(user)
@@ -57,19 +45,20 @@ io.on('connection', (socket) => {
     })
 
     socket.on('chatMessage', (msg) => {
-        console.log(msg)
         const user = getUser(socket.id)
-        io.to(user.room).emit('message', formatMessage(user.name, user.id, msg))
+        if (user) {
+            io.to(user.room).emit('message', formatMessage(user.name, user.id, msg))
+        }
     })
 
-
+ 
     socket.on('disconnect', () => {
         const user = userLeft(socket.id)
-        if(user){
+        if (user) {
             io.to(user.room).emit('message', formatMessage(bot, '1357', `${user.name} has left the room`))
         }
     })
 })
 
 
-server.listen(port, () => console.log('server is up and running on port : ' + port))
+server.listen(port, () => console.log('server is up and running on port: ' + port))

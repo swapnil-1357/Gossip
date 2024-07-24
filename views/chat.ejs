@@ -5,14 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gossip/Chat</title>
-
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="icon" type="public/x-icon" href="./public/chat (1).png">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800&display=swap" rel="stylesheet">
-
-
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css" rel="stylesheet" />
     <link rel="stylesheet" href="./chat.css">
 </head>
@@ -23,13 +20,12 @@
         <div class="text-[3rem] leading-none font-bold text-white">
             <i class="ri-chat-3-line"></i>
             GOSSIP
-            <p class="text-[30px] mt-4">Welcome,<%= username %>
+            <p class="text-[30px] mt-4">Welcome, <%= username %>
             </p>
         </div>
-   
         <div id="chat" class="rounded-lg bg-black border-2 border-white h-[50vh] w-[60vw]">
             <div id="roomNameDisplay" class="bg-slate-200 py-4 px-6 rounded-md font-bold text-2xl text-blue-500">
-            <%= roomname %>
+                <%= roomname %>
             </div>
             <div id="msg-container" class="flex flex-col gap-2 flex-grow overflow-y-auto h-[80%] my-1">
             </div>
@@ -47,7 +43,64 @@
         integrity="sha512-JduLFfiB5t9F2dYayaCCWObe/SeciiMhX2MHAKGvQ22crUA/Sb1l4elG5A7r7Bu1tP2rs1cU5lR1Irx/govVdg=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="/socket.io/socket.io.js"></script>
-    <script src="./main.js"></script>
+    <script>
+        const input = document.getElementById('msg')
+        const button = document.getElementById('btn')
+        const msgContainer = document.getElementById('msg-container')
+
+        const params = new URLSearchParams(window.location.search)
+        const username = '<%= username %>'
+        const roomname = '<%= roomname %>'
+
+        const socket = io()
+
+        // Join chatroom
+        socket.emit('user-joined', { username, roomname })
+
+        // Message from server
+        socket.on('message', (data) => {
+            addMessage(data)
+            msgContainer.scrollTop = msgContainer.scrollHeight
+        })
+
+        // Send message on button click
+        button.addEventListener('click', (e) => {
+            e.preventDefault()
+            sendMessage()
+        })
+
+        // Send message on Enter key press
+        input.addEventListener('keyup', (e) => {
+            if (e.key === 'Enter') {
+                e.preventDefault()
+                sendMessage()
+            }
+        })
+
+        function sendMessage() {
+            const msg = input.value
+            if (msg !== '') {
+                socket.emit('chatMessage', msg)
+                input.value = ''
+                input.focus()
+            }
+        }
+
+        function addMessage(data) {
+            const newChild = document.createElement('div')
+            if (data.id === socket.id) {
+                newChild.classList.add('right')
+                newChild.innerHTML = `<p class="font-bold text-sm text-black">You: </p><p class="text-lg">${data.text}</p>`
+            } else if (data.id === '1357') {
+                newChild.classList.add('middle')
+                newChild.innerHTML = `<p>${data.text}</p>`
+            } else {
+                newChild.classList.add('left')
+                newChild.innerHTML = `<p class="font-bold text-sm text-black">${data.username}: </p><p class="text-lg">${data.text}</p>`
+            }
+            msgContainer.appendChild(newChild)
+        }
+    </script>
 </body>
 
 </html>
