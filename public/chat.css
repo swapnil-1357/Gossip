@@ -10,14 +10,14 @@
 }
 
 .right {
-    background-color: #d1e7dd; 
+    background-color: #d1e7dd;
     margin-left: auto;
     border-top-right-radius: 0;
     max-width: 300px;
     text-align: left;
     padding: 0.5rem 1.3rem;
     border-radius: 0.5rem;
-    
+
 }
 
 .left {
@@ -31,7 +31,7 @@
 }
 
 .middle {
-    background-color: #fff3cd; 
+    background-color: #fff3cd;
     margin: 0 auto;
     width: fit-content;
     border-radius: 20px;
@@ -43,7 +43,7 @@
 }
 
 
-#msg-container{
+#msg-container {
     background: url('/wp-bg.jpg');
     background-size: cover;
     background-position: center;
@@ -52,9 +52,9 @@
     overflow-y: auto;
     padding: 10px;
 
-    word-break: break-word; 
-    overflow-wrap: break-word; 
-    white-space: pre-wrap; 
+    word-break: break-word;
+    overflow-wrap: break-word;
+    white-space: pre-wrap;
     clear: both;
 
 }

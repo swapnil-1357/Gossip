@@ -2,39 +2,76 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Gossip/Chat</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="icon" type="public/x-icon" href="./public/chat (1).png">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="icon" type="image/x-icon" href="./public/chat (1).png" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800&display=swap"
+        rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css" rel="stylesheet" />
-    <link rel="stylesheet" href="./chat.css">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        #msg-container>div {
+            margin-bottom: 2px;
+        }
+
+        .left {
+            align-self: flex-start;
+            background-color: white;
+            border-radius: 1rem 1rem 1rem 0;
+            padding: 0.4rem 0.6rem;
+            max-width: 75%;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .right {
+            align-self: flex-end;
+            background-color: #dcfce7;
+            border-radius: 1rem 1rem 0 1rem;
+            padding: 0.4rem 0.6rem;
+            max-width: 75%;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .middle {
+            align-self: center;
+            background-color: #e5e7eb;
+            font-size: 0.75rem;
+            color: #4b5563;
+            padding: 0.3rem 0.7rem;
+            border-radius: 9999px;
+            max-width: 90%;
+        }
+    </style>
 </head>
 
 <body>
     <div id="main"
-        class="bg-gradient-to-r from-cyan-500 to-blue-500 font-['Montserrat'] px-[5rem] py-[5rem] h-screen flex flex-col justify-center items-center gap-[3rem]">
-        <div class="text-[3rem] leading-none font-bold text-white">
-            <i class="ri-chat-3-line"></i>
-            GOSSIP
+        class="bg-gradient-to-r from-cyan-500 to-blue-500 px-[5rem] py-[5rem] h-screen flex flex-col justify-center items-center gap-[3rem]">
+        <div class="text-[3rem] leading-none font-bold text-white text-center">
+            <i class="ri-chat-3-line"></i> GOSSIP
             <p class="text-[30px] mt-4">Welcome, <%= username %>
             </p>
         </div>
-        <div id="chat" class="rounded-lg bg-black border-2 border-white h-[50vh] w-[60vw]">
+        <div id="chat" class="rounded-lg bg-black border-2 border-white h-[50vh] w-[60vw] flex flex-col">
             <div id="roomNameDisplay" class="bg-slate-200 py-4 px-6 rounded-md font-bold text-2xl text-blue-500">
                 <%= roomname %>
             </div>
-            <div id="msg-container" class="flex flex-col gap-2 flex-grow overflow-y-auto h-[80%] my-1">
+            <div id="msg-container" class="flex flex-col overflow-y-auto h-[80%] px-3 py-2">
             </div>
-            <div class="bg-slate-200 mt-4 p-4 rounded-3xl flex items-center gap-4">
+            <div class="bg-slate-200 p-4 rounded-3xl flex items-center gap-4 mt-auto">
                 <i class="ri-chat-3-line text-3xl font-bold text-blue-500"></i>
                 <input id="msg" autocomplete="off" type="text" placeholder="Enter your message..."
-                    class="w-[100%] bg-slate-200 border-2 border-slate-300 rounded-3xl px-4 py-2 outline-none">
-                <button id="btn" type="submit" class="text-3xl"><i
-                        class="ri-send-plane-line font-bold text-blue-500"></i></button>
+                    class="w-full bg-slate-200 border-2 border-slate-300 rounded-3xl px-4 py-2 outline-none" />
+                <button id="btn" type="submit" class="text-3xl">
+                    <i class="ri-send-plane-line font-bold text-blue-500"></i>
+                </button>
             </div>
         </div>
     </div>
@@ -44,63 +81,86 @@
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="/socket.io/socket.io.js"></script>
     <script>
-        const input = document.getElementById('msg')
-        const button = document.getElementById('btn')
-        const msgContainer = document.getElementById('msg-container')
+        const input = document.getElementById('msg');
+        const button = document.getElementById('btn');
+        const msgContainer = document.getElementById('msg-container');
 
-        const params = new URLSearchParams(window.location.search)
-        const username = '<%= username %>'
-        const roomname = '<%= roomname %>'
+        const username = '<%= username %>';
+        const roomname = '<%= roomname %>';
 
-        const socket = io()
+        const socket = io();
+        const shownSystemMessages = new Set();
 
-        // Join chatroom
-        socket.emit('user-joined', { username, roomname })
+        socket.emit('user-joined', { username, roomname });
 
-        // Message from server
         socket.on('message', (data) => {
-            addMessage(data)
-            msgContainer.scrollTop = msgContainer.scrollHeight
-        })
+            if (data.id === '1357' && shownSystemMessages.has(data.text)) return;
+            if (data.id === '1357') shownSystemMessages.add(data.text);
 
-        // Send message on button click
+            addMessage(data);
+            msgContainer.scrollTop = msgContainer.scrollHeight;
+        });
+
         button.addEventListener('click', (e) => {
-            e.preventDefault()
-            sendMessage()
-        })
+            e.preventDefault();
+            sendMessage();
+        });
 
-        // Send message on Enter key press
         input.addEventListener('keyup', (e) => {
             if (e.key === 'Enter') {
-                e.preventDefault()
-                sendMessage()
+                e.preventDefault();
+                sendMessage();
             }
-        })
+        });
 
         function sendMessage() {
-            const msg = input.value
+            const msg = input.value.trim();
             if (msg !== '') {
-                socket.emit('chatMessage', msg)
-                input.value = ''
-                input.focus()
+                socket.emit('chatMessage', msg);
+                input.value = '';
+                input.focus();
             }
+        }
+
+        function formatTime() {
+            const now = new Date();
+            return now.toLocaleTimeString([], {
+                hour: '2-digit',
+                minute: '2-digit',
+                hour12: true,
+            });
         }
 
         function addMessage(data) {
-            const newChild = document.createElement('div')
+            const newChild = document.createElement('div');
+            const time = formatTime();
+
             if (data.id === socket.id) {
-                newChild.classList.add('right')
-                newChild.innerHTML = `<p class="font-bold text-sm text-black">You: </p><p class="text-lg">${data.text}</p>`
+                newChild.classList.add('right');
+                newChild.innerHTML = `
+            <p class="font-bold text-sm text-black">You:</p>
+            <p class="text-sm">${data.text}</p>
+            <p class="text-[0.65rem] text-right text-gray-400">${time}</p>
+          `;
             } else if (data.id === '1357') {
-                newChild.classList.add('middle')
-                newChild.innerHTML = `<p>${data.text}</p>`
+                newChild.classList.add('middle');
+                newChild.innerHTML = `
+            <p>${data.text}</p>
+            <p class="text-[0.65rem] text-center text-gray-400">${time}</p>
+          `;
             } else {
-                newChild.classList.add('left')
-                newChild.innerHTML = `<p class="font-bold text-sm text-black">${data.username}: </p><p class="text-lg">${data.text}</p>`
+                newChild.classList.add('left');
+                newChild.innerHTML = `
+            <p class="font-bold text-sm text-black">${data.username}:</p>
+            <p class="text-sm">${data.text}</p>
+            <p class="text-[0.65rem] text-left text-gray-400">${time}</p>
+          `;
             }
-            msgContainer.appendChild(newChild)
+
+            msgContainer.appendChild(newChild);
         }
     </script>
+
 </body>
 
 </html>

@@ -2,7 +2,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url("./public/chatui4.svg");
+    background-image: url("/chatui4.svg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
