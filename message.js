@@ -1,11 +1,17 @@
 
 const formatMessage = (username, id, text) => {
+    const time = new Date().toLocaleTimeString('en-IN', {
+        hour: '2-digit',
+        minute: '2-digit',
+        hour12: false
+    });
+
     return {
         username,
         id,
         text,
-        time: new Date().toISOString().slice(0, 19).replace('T', ' ')
-    }
-}
+        time
+    };
+};
 
-module.exports = formatMessage
+module.exports = formatMessage;
