@@ -1,31 +1,29 @@
 FROM node:18-alpine
 
+# Install NGINX and Supervisor
+RUN apk add --no-cache nginx supervisor
+
 # Create app directory
 WORKDIR /app
 
-# Copy package files
+# Copy package files and install dependencies
 COPY package*.json ./
-
-# Install dependencies
 RUN npm ci --only=production
 
 # Copy app source
 COPY . .
 
-# Create non-root user
-RUN addgroup -g 1001 -S nodejs
-RUN adduser -S nodejs -u 1001
+# Copy nginx and supervisor configs
+COPY nginx.conf /etc/nginx/nginx.conf
+COPY supervisord.conf /etc/supervisord.conf
 
-# Change ownership of app directory
+# Create non-root user
+RUN addgroup -g 1001 -S nodejs && adduser -S nodejs -u 1001
 RUN chown -R nodejs:nodejs /app
 USER nodejs
 
-# Expose port
-EXPOSE 5000
+# Expose NGINX port (public entry)
+EXPOSE 80
 
-# Health check
-HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
-  CMD node -e "require('http').get('http://localhost:5000', (res) => { process.exit(res.statusCode === 200 ? 0 : 1) })"
-
-# Start the application
-CMD ["npm", "start"]
+# Use supervisor to run both app servers + nginx
+CMD ["/usr/bin/supervisord", "-c", "/etc/supervisord.conf"]
