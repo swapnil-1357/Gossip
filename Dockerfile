@@ -1,28 +1,26 @@
+# Dockerfile
 FROM node:18-alpine
 
-# Install nginx (no supervisor)
-RUN apk add --no-cache nginx
+# Install nginx and supervisord
+RUN apk add --no-cache nginx supervisor
 
+# Set workdir
 WORKDIR /app
 
-# Copy only production dependencies
-COPY package*.json ./
-RUN npm ci --only=production
-
-# Copy app code and nginx config
+# Copy app files
 COPY . .
 
-# Create non-root user
-RUN addgroup -g 1001 -S nodejs && \
-    adduser -S nodejs -u 1001 -G nodejs && \
-    chown -R nodejs:nodejs /app
+# Install Node.js dependencies
+RUN npm ci --omit=dev
 
-USER nodejs
+# Copy NGINX config
+COPY nginx.conf /etc/nginx/nginx.conf
 
-# Set env variable
-ENV PORT=5000
+# Copy supervisor config
+COPY supervisord.conf /etc/supervisord.conf
 
-EXPOSE 5000 80
+# Expose port for NGINX
+EXPOSE 80
 
-# Start both Node.js and NGINX
-CMD ["node", "server.js"]
+# Start both NGINX and Node.js apps via supervisord
+CMD ["/usr/bin/supervisord", "-c", "/etc/supervisord.conf"]
