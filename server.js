@@ -18,18 +18,18 @@ dotenv.config();
 
 const app = express();
 const server = http.createServer(app);
+const port = process.env.PORT || 5000;
 
 const io = new Server(server, {
     cors: {
-        origin: '*', // ✅ Allow all origins; restrict in production if needed
+        origin: '*',
         methods: ['GET', 'POST']
     }
 });
 
 const bot = 'GossiBot';
-const port = process.env.PORT || 5000;
 
-// ✅ Redis client config with Railway compatibility
+// ✅ Redis client config for Railway-compatible deployment
 const redisClient = redis.createClient({
     socket: {
         host: process.env.REDIS_HOST || 'localhost',
@@ -42,23 +42,39 @@ const redisClient = redis.createClient({
 const redisPublisher = redisClient.duplicate();
 const redisSubscriber = redisClient.duplicate();
 
+// ✅ Connect Redis and attach listeners
 const connectRedis = async () => {
     try {
         await redisClient.connect();
-        await redisClient.ping(); // Optional health check
         await redisPublisher.connect();
         await redisSubscriber.connect();
-        console.log('✅ Connected to Redis');
+
+        console.log('✅ Redis client connected');
+        console.log('✅ Redis publisher connected');
+        console.log('✅ Redis subscriber connected');
+
         initRedisClient(redisClient);
+
+        redisClient.on('error', (err) => console.error('❌ Redis error:', err));
+        redisClient.on('connect', () => console.log('🔌 Redis main client connected'));
+        redisClient.on('reconnecting', () => console.log('🔁 Redis client reconnecting...'));
+        redisClient.on('end', () => console.log('🚪 Redis connection closed'));
+
+        // Optional periodic Redis stats
+        setInterval(async () => {
+            const info = await redisClient.info();
+            console.log('📊 Redis INFO Snapshot:\n', info.split('\n').slice(0, 8).join('\n'));
+        }, 60000);
+
     } catch (error) {
-        console.error('❌ Redis connection error:', error);
+        console.error('❌ Failed to connect to Redis:', error);
         process.exit(1);
     }
 };
 
 connectRedis();
 
-// ✅ Express setup
+// ✅ Static & view config
 app.set('view engine', 'ejs');
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -78,10 +94,12 @@ app.post('/join', (req, res) => {
     });
 });
 
-// ✅ Redis pub/sub message relay
+// ✅ Redis Subscriber - Pub/Sub message relay
 redisSubscriber.pSubscribe('chat:*', async (message, channel) => {
     const data = JSON.parse(message);
     const room = channel.split(':')[1];
+
+    console.log(`📨 [Redis] Received on ${channel}:`, data);
 
     switch (data.type) {
         case 'message':
@@ -98,10 +116,10 @@ redisSubscriber.pSubscribe('chat:*', async (message, channel) => {
 
 // ✅ Socket.IO logic
 io.on('connection', (socket) => {
-    console.log('🔌 User connected:', socket.id);
+    console.log('🔌 New user connected:', socket.id);
 
-    socket.on('user-joined', async (newUser) => {
-        const user = await userJoin(socket.id, newUser.username, newUser.roomname);
+    socket.on('user-joined', async ({ username, roomname }) => {
+        const user = await userJoin(socket.id, username, roomname);
         socket.join(user.room);
 
         socket.emit('message', formatMessage(bot, '1357', 'Welcome to Gossip'));
@@ -110,18 +128,19 @@ io.on('connection', (socket) => {
             type: 'userJoined',
             payload: { username: user.name }
         }));
-
-        socket.broadcast.to(user.room).emit('message', formatMessage(bot, '1357', `${user.name} has joined the room`));
+        console.log(`📤 [Redis] Published userJoined to chat:${user.room}`);
     });
 
     socket.on('chatMessage', async (msg) => {
         const user = await getUser(socket.id);
         if (user) {
             const messageData = formatMessage(user.name, user.id, msg);
+
             await redisPublisher.publish(`chat:${user.room}`, JSON.stringify({
                 type: 'message',
                 payload: messageData
             }));
+            console.log(`📤 [Redis] Published message to chat:${user.room}`);
         }
     });
 
@@ -132,23 +151,24 @@ io.on('connection', (socket) => {
                 type: 'userLeft',
                 payload: { username: user.name }
             }));
+            console.log(`📤 [Redis] Published userLeft to chat:${user.room}`);
         }
     });
 });
 
 // ✅ Graceful shutdown
 process.on('SIGINT', async () => {
-    console.log('🛑 Shutting down...');
+    console.log('🛑 SIGINT received. Closing connections...');
     await redisClient.quit();
     await redisPublisher.quit();
     await redisSubscriber.quit();
     server.close(() => {
-        console.log('✅ HTTP server closed');
+        console.log('✅ Server closed gracefully');
         process.exit(0);
     });
 });
 
-// ✅ Start server
+// ✅ Start HTTP server
 server.listen(port, () => {
-    console.log(`🚀 Server is up and running on port: ${port} | PID: ${process.pid}`);
+    console.log(`🚀 Server running on port ${port} | PID: ${process.pid}`);
 });
