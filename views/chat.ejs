@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Gossip/Chat</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -65,7 +65,12 @@
             </div>
             <div id="msg-container" class="flex flex-col overflow-y-auto h-[80%] px-3 py-2">
             </div>
+            <!-- Input section -->
             <div class="bg-slate-200 p-4 rounded-3xl flex items-center gap-4 mt-auto">
+                <label for="fileInput" class="cursor-pointer">
+                    <i class="ri-attachment-2 text-3xl font-bold text-blue-500"></i>
+                </label>
+                <input type="file" id="fileInput" class="hidden" />
                 <i class="ri-chat-3-line text-3xl font-bold text-blue-500"></i>
                 <input id="msg" autocomplete="off" type="text" placeholder="Enter your message..."
                     class="w-full bg-slate-200 border-2 border-slate-300 rounded-3xl px-4 py-2 outline-none" />
@@ -76,17 +81,21 @@
         </div>
     </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.10.5/qs.min.js"
-        integrity="sha512-JduLFfiB5t9F2dYayaCCWObe/SeciiMhX2MHAKGvQ22crUA/Sb1l4elG5A7r7Bu1tP2rs1cU5lR1Irx/govVdg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.10.5/qs.min.js" crossorigin="anonymous"
+        referrerpolicy="no-referrer"></script>
     <script src="/socket.io/socket.io.js"></script>
     <script>
         const input = document.getElementById('msg');
         const button = document.getElementById('btn');
+        const fileInput = document.getElementById('fileInput');
         const msgContainer = document.getElementById('msg-container');
 
         const username = '<%= username %>';
         const roomname = '<%= roomname %>';
+
+        // Inject Cloudinary config from env via server render
+        const cloudName = '<%= cloudName %>';
+        const unsignedPreset = '<%= unsignedPreset %>';
 
         const socket = io();
         const shownSystemMessages = new Set();
@@ -113,6 +122,42 @@
             }
         });
 
+        fileInput.addEventListener('change', async () => {
+            const file = fileInput.files[0];
+            if (!file) return;
+
+            const url = `https://api.cloudinary.com/v1_1/${cloudName}/auto/upload`;
+
+            const formData = new FormData();
+            formData.append('file', file);
+            formData.append('upload_preset', unsignedPreset);
+
+            try {
+                const res = await fetch(url, {
+                    method: 'POST',
+                    body: formData,
+                });
+                const data = await res.json();
+
+                if (!res.ok) throw new Error(data.error?.message || 'Upload failed');
+
+                // Determine type: image or file
+                const type = file.type.startsWith('image/') ? 'image' : 'file';
+
+                socket.emit('chatMessage', {
+                    type,
+                    url: data.secure_url,
+                    filename: file.name,
+                    username,
+                });
+            } catch (err) {
+                console.error(err);
+                alert('Upload failed');
+            }
+
+            fileInput.value = ''; // reset input
+        });
+
         function sendMessage() {
             const msg = input.value.trim();
             if (msg !== '') {
@@ -133,34 +178,58 @@
 
         function addMessage(data) {
             const newChild = document.createElement('div');
-            const time = formatTime();
 
+            // Sender label (skip for system messages)
+            if (data.id && data.id !== '1357') {
+                const sender = document.createElement('p');
+                sender.classList.add('font-bold', 'text-sm', 'text-black', 'mb-1');
+                sender.textContent = data.username || 'Unknown';
+                newChild.appendChild(sender);
+            }
+
+            // Message content
+            if (data.type === 'image' && data.url) {
+                const img = document.createElement('img');
+                img.src = data.url;
+                img.alt = 'Image';
+                img.classList.add('max-w-xs', 'rounded-lg');
+                newChild.appendChild(img);
+            } else if (data.type === 'file' && data.url && data.filename) {
+                const link = document.createElement('a');
+                link.href = data.url;
+                link.target = '_blank';
+                link.classList.add('text-blue-600', 'underline');
+                link.textContent = data.filename;
+                newChild.appendChild(link);
+            } else if (typeof data.text === 'string') {
+                const text = document.createElement('p');
+                text.textContent = data.text;
+                newChild.appendChild(text);
+            } else {
+                // fallback stringify
+                const text = document.createElement('p');
+                text.textContent = JSON.stringify(data.text);
+                newChild.appendChild(text);
+            }
+
+            // Timestamp
+            const timeElem = document.createElement('span');
+            timeElem.classList.add('text-xs', 'text-gray-500', 'mt-1', 'block');
+            timeElem.textContent = data.time || formatTime();
+            newChild.appendChild(timeElem);
+
+            // Style based on sender
             if (data.id === socket.id) {
                 newChild.classList.add('right');
-                newChild.innerHTML = `
-            <p class="font-bold text-sm text-black">You:</p>
-            <p class="text-sm">${data.text}</p>
-            <p class="text-[0.65rem] text-right text-gray-400">${time}</p>
-          `;
             } else if (data.id === '1357') {
                 newChild.classList.add('middle');
-                newChild.innerHTML = `
-            <p>${data.text}</p>
-            <p class="text-[0.65rem] text-center text-gray-400">${time}</p>
-          `;
             } else {
                 newChild.classList.add('left');
-                newChild.innerHTML = `
-            <p class="font-bold text-sm text-black">${data.username}:</p>
-            <p class="text-sm">${data.text}</p>
-            <p class="text-[0.65rem] text-left text-gray-400">${time}</p>
-          `;
             }
 
             msgContainer.appendChild(newChild);
         }
     </script>
-
 </body>
 
 </html>
