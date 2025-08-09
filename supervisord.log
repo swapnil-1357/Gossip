@@ -1,0 +1,566 @@
+2025-08-09 19:37:22,361 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2025-08-09 19:37:22,362 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2025-08-09 19:37:22,372 INFO supervisord started with pid 1
+2025-08-09 19:37:22,374 INFO supervisord started with pid 1
+2025-08-09 19:37:23,376 INFO spawned: 'app' with pid 8
+2025-08-09 19:37:23,378 INFO spawned: 'app' with pid 8
+2025-08-09 19:37:23,380 INFO spawned: 'app2' with pid 9
+2025-08-09 19:37:23,386 INFO spawned: 'app2' with pid 9
+2025-08-09 19:37:23,388 INFO spawned: 'nginx' with pid 10
+2025-08-09 19:37:23,401 INFO spawned: 'nginx' with pid 10
+2025-08-09 19:37:24,420 INFO success: app entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-08-09 19:37:24,424 INFO success: app2 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-08-09 19:37:24,425 INFO success: nginx entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-08-09 19:37:24,426 INFO success: app entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-08-09 19:37:24,427 INFO success: app2 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-08-09 19:37:24,427 INFO success: nginx entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-08-09 19:44:35,268 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2025-08-09 19:44:35,278 INFO supervisord started with pid 1
+2025-08-09 19:44:35,309 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2025-08-09 19:44:35,328 INFO supervisord started with pid 1
+2025-08-09 19:44:36,282 INFO spawned: 'app' with pid 8
+2025-08-09 19:44:36,285 INFO spawned: 'app2' with pid 9
+2025-08-09 19:44:36,288 INFO spawned: 'nginx' with pid 10
+2025-08-09 19:44:36,333 INFO spawned: 'app' with pid 8
+2025-08-09 19:44:36,340 INFO spawned: 'app2' with pid 9
+2025-08-09 19:44:36,344 INFO spawned: 'nginx' with pid 10
+2025-08-09 19:44:37,183 WARN exited: app2 (exit status 1; not expected)
+2025-08-09 19:44:37,190 WARN exited: app2 (exit status 1; not expected)
+2025-08-09 19:44:37,197 WARN exited: app (exit status 1; not expected)
+2025-08-09 19:44:37,216 WARN exited: app (exit status 1; not expected)
+2025-08-09 19:44:38,201 INFO spawned: 'app' with pid 24
+2025-08-09 19:44:38,205 INFO spawned: 'app2' with pid 25
+2025-08-09 19:44:38,207 INFO success: nginx entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-08-09 19:44:38,221 INFO spawned: 'app' with pid 24
+2025-08-09 19:44:38,224 INFO spawned: 'app2' with pid 25
+2025-08-09 19:44:38,245 INFO success: nginx entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-08-09 19:44:38,947 WARN exited: app (exit status 1; not expected)
+2025-08-09 19:44:38,949 WARN exited: app (exit status 1; not expected)
+2025-08-09 19:44:38,959 WARN exited: app2 (exit status 1; not expected)
+2025-08-09 19:44:38,978 WARN exited: app2 (exit status 1; not expected)
+2025-08-09 19:44:40,964 INFO spawned: 'app' with pid 38
+2025-08-09 19:44:40,969 INFO spawned: 'app2' with pid 39
+2025-08-09 19:44:40,984 INFO spawned: 'app' with pid 38
+2025-08-09 19:44:40,988 INFO spawned: 'app2' with pid 39
+2025-08-09 19:44:41,829 WARN exited: app2 (exit status 1; not expected)
+2025-08-09 19:44:41,838 WARN exited: app2 (exit status 1; not expected)
+2025-08-09 19:44:41,839 WARN exited: app (exit status 1; not expected)
+2025-08-09 19:44:41,859 WARN exited: app (exit status 1; not expected)
+2025-08-09 19:44:44,844 INFO spawned: 'app' with pid 52
+2025-08-09 19:44:44,848 INFO spawned: 'app2' with pid 53
+2025-08-09 19:44:44,865 INFO spawned: 'app' with pid 52
+2025-08-09 19:44:44,873 INFO spawned: 'app2' with pid 53
+2025-08-09 19:44:45,644 WARN exited: app (exit status 1; not expected)
+2025-08-09 19:44:45,646 WARN exited: app2 (exit status 1; not expected)
+2025-08-09 19:44:45,649 INFO gave up: app2 entered FATAL state, too many start retries too quickly
+2025-08-09 19:44:45,649 WARN exited: app (exit status 1; not expected)
+2025-08-09 19:44:45,670 INFO gave up: app entered FATAL state, too many start retries too quickly
+2025-08-09 19:44:45,678 WARN exited: app2 (exit status 1; not expected)
+2025-08-09 19:44:46,651 INFO gave up: app entered FATAL state, too many start retries too quickly
+2025-08-09 19:44:46,680 INFO gave up: app2 entered FATAL state, too many start retries too quickly
+2025-08-09 19:50:38,137 WARN received SIGTERM indicating exit request
+2025-08-09 19:50:38,140 INFO waiting for nginx to die
+2025-08-09 19:50:38,147 WARN received SIGTERM indicating exit request
+2025-08-09 19:50:38,148 INFO waiting for nginx to die
+2025-08-09 19:50:38,192 INFO stopped: nginx (exit status 0)
+2025-08-09 19:50:38,195 INFO stopped: nginx (exit status 0)
+2025-08-09 19:50:40,866 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2025-08-09 19:50:40,875 INFO supervisord started with pid 1
+2025-08-09 19:50:40,900 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2025-08-09 19:50:40,907 INFO supervisord started with pid 1
+2025-08-09 19:50:41,880 INFO spawned: 'app' with pid 8
+2025-08-09 19:50:41,889 INFO spawned: 'app2' with pid 9
+2025-08-09 19:50:41,901 INFO spawned: 'nginx' with pid 10
+2025-08-09 19:50:41,911 INFO spawned: 'app' with pid 8
+2025-08-09 19:50:41,920 INFO spawned: 'app2' with pid 9
+2025-08-09 19:50:41,925 INFO spawned: 'nginx' with pid 10
+2025-08-09 19:50:42,611 WARN exited: app2 (exit status 1; not expected)
+2025-08-09 19:50:42,645 WARN exited: app (exit status 1; not expected)
+2025-08-09 19:50:42,652 WARN exited: app2 (exit status 1; not expected)
+2025-08-09 19:50:42,661 WARN exited: app (exit status 1; not expected)
+2025-08-09 19:50:43,647 INFO spawned: 'app2' with pid 24
+2025-08-09 19:50:43,648 INFO success: nginx entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-08-09 19:50:43,663 INFO spawned: 'app2' with pid 24
+2025-08-09 19:50:43,666 INFO success: nginx entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-08-09 19:50:44,194 INFO spawned: 'app' with pid 31
+2025-08-09 19:50:44,202 WARN exited: app2 (exit status 1; not expected)
+2025-08-09 19:50:44,219 INFO spawned: 'app' with pid 31
+2025-08-09 19:50:44,226 WARN exited: app2 (exit status 1; not expected)
+2025-08-09 19:50:44,799 WARN exited: app (exit status 1; not expected)
+2025-08-09 19:50:44,828 WARN exited: app (exit status 1; not expected)
+2025-08-09 19:50:46,805 INFO spawned: 'app' with pid 38
+2025-08-09 19:50:46,810 INFO spawned: 'app2' with pid 39
+2025-08-09 19:50:46,834 INFO spawned: 'app' with pid 38
+2025-08-09 19:50:46,838 INFO spawned: 'app2' with pid 39
+2025-08-09 19:50:47,596 WARN exited: app (exit status 1; not expected)
+2025-08-09 19:50:47,611 WARN exited: app2 (exit status 1; not expected)
+2025-08-09 19:50:47,621 WARN exited: app (exit status 1; not expected)
+2025-08-09 19:50:47,629 WARN exited: app2 (exit status 1; not expected)
+2025-08-09 19:50:50,619 INFO spawned: 'app' with pid 52
+2025-08-09 19:50:50,623 INFO spawned: 'app2' with pid 53
+2025-08-09 19:50:50,635 INFO spawned: 'app' with pid 52
+2025-08-09 19:50:50,639 INFO spawned: 'app2' with pid 53
+2025-08-09 19:50:51,626 INFO success: app entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-08-09 19:50:51,630 INFO success: app2 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-08-09 19:50:51,642 INFO success: app entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-08-09 19:50:51,643 INFO success: app2 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-08-09 19:50:51,850 WARN exited: app2 (exit status 1; not expected)
+2025-08-09 19:50:51,850 WARN exited: app (exit status 1; not expected)
+2025-08-09 19:50:51,862 INFO spawned: 'app2' with pid 66
+2025-08-09 19:50:51,863 WARN exited: app (exit status 1; not expected)
+2025-08-09 19:50:51,879 INFO spawned: 'app' with pid 66
+2025-08-09 19:50:51,889 WARN exited: app2 (exit status 1; not expected)
+2025-08-09 19:50:52,454 INFO spawned: 'app' with pid 73
+2025-08-09 19:50:52,463 WARN exited: app2 (exit status 1; not expected)
+2025-08-09 19:50:52,498 INFO spawned: 'app2' with pid 73
+2025-08-09 19:50:52,504 WARN exited: app (exit status 1; not expected)
+2025-08-09 19:50:53,147 WARN exited: app (exit status 1; not expected)
+2025-08-09 19:50:53,181 WARN exited: app2 (exit status 1; not expected)
+2025-08-09 19:50:54,152 INFO spawned: 'app' with pid 80
+2025-08-09 19:50:54,156 INFO spawned: 'app2' with pid 81
+2025-08-09 19:50:54,185 INFO spawned: 'app' with pid 80
+2025-08-09 19:50:54,190 INFO spawned: 'app2' with pid 81
+2025-08-09 19:50:54,907 WARN exited: app2 (exit status 1; not expected)
+2025-08-09 19:50:54,910 WARN exited: app (exit status 1; not expected)
+2025-08-09 19:50:54,943 WARN exited: app2 (exit status 1; not expected)
+2025-08-09 19:50:54,975 WARN exited: app (exit status 1; not expected)
+2025-08-09 19:50:56,917 INFO spawned: 'app' with pid 94
+2025-08-09 19:50:56,923 INFO spawned: 'app2' with pid 95
+2025-08-09 19:50:56,981 INFO spawned: 'app' with pid 94
+2025-08-09 19:50:56,988 INFO spawned: 'app2' with pid 95
+2025-08-09 19:50:57,719 WARN exited: app (exit status 1; not expected)
+2025-08-09 19:50:57,779 WARN exited: app2 (exit status 1; not expected)
+2025-08-09 19:50:57,852 WARN exited: app (exit status 1; not expected)
+2025-08-09 19:50:57,862 WARN exited: app2 (exit status 1; not expected)
+2025-08-09 19:51:00,789 INFO spawned: 'app' with pid 108
+2025-08-09 19:51:00,795 INFO spawned: 'app2' with pid 109
+2025-08-09 19:51:00,870 INFO spawned: 'app' with pid 108
+2025-08-09 19:51:00,874 INFO spawned: 'app2' with pid 109
+2025-08-09 19:51:01,605 WARN exited: app (exit status 1; not expected)
+2025-08-09 19:51:01,611 INFO gave up: app entered FATAL state, too many start retries too quickly
+2025-08-09 19:51:01,615 WARN exited: app2 (exit status 1; not expected)
+2025-08-09 19:51:01,667 WARN exited: app (exit status 1; not expected)
+2025-08-09 19:51:01,685 INFO gave up: app entered FATAL state, too many start retries too quickly
+2025-08-09 19:51:01,694 WARN exited: app2 (exit status 1; not expected)
+2025-08-09 19:51:02,618 INFO gave up: app2 entered FATAL state, too many start retries too quickly
+2025-08-09 19:51:02,696 INFO gave up: app2 entered FATAL state, too many start retries too quickly
+2025-08-09 19:54:24,877 WARN received SIGTERM indicating exit request
+2025-08-09 19:54:24,881 INFO waiting for nginx to die
+2025-08-09 19:54:24,924 INFO stopped: nginx (exit status 0)
+2025-08-09 19:54:24,962 WARN received SIGTERM indicating exit request
+2025-08-09 19:54:24,967 INFO waiting for nginx to die
+2025-08-09 19:54:25,005 INFO stopped: nginx (exit status 0)
+2025-08-09 19:54:27,828 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2025-08-09 19:54:27,838 INFO supervisord started with pid 1
+2025-08-09 19:54:27,855 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2025-08-09 19:54:27,873 INFO supervisord started with pid 1
+2025-08-09 19:54:28,842 INFO spawned: 'app' with pid 8
+2025-08-09 19:54:28,845 INFO spawned: 'app2' with pid 9
+2025-08-09 19:54:28,849 INFO spawned: 'nginx' with pid 10
+2025-08-09 19:54:28,877 INFO spawned: 'app' with pid 8
+2025-08-09 19:54:28,880 INFO spawned: 'app2' with pid 9
+2025-08-09 19:54:28,884 INFO spawned: 'nginx' with pid 10
+2025-08-09 19:54:29,583 WARN exited: app2 (exit status 1; not expected)
+2025-08-09 19:54:29,590 WARN exited: app (exit status 1; not expected)
+2025-08-09 19:54:29,613 WARN exited: app (exit status 1; not expected)
+2025-08-09 19:54:29,637 WARN exited: app2 (exit status 1; not expected)
+2025-08-09 19:54:30,595 INFO spawned: 'app' with pid 24
+2025-08-09 19:54:30,601 INFO spawned: 'app2' with pid 25
+2025-08-09 19:54:30,603 INFO success: nginx entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-08-09 19:54:30,641 INFO spawned: 'app' with pid 24
+2025-08-09 19:54:30,645 INFO spawned: 'app2' with pid 25
+2025-08-09 19:54:30,648 INFO success: nginx entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-08-09 19:54:31,345 WARN exited: app2 (exit status 1; not expected)
+2025-08-09 19:54:31,372 WARN exited: app (exit status 1; not expected)
+2025-08-09 19:54:31,394 WARN exited: app (exit status 1; not expected)
+2025-08-09 19:54:31,413 WARN exited: app2 (exit status 1; not expected)
+2025-08-09 19:54:33,382 INFO spawned: 'app' with pid 38
+2025-08-09 19:54:33,391 INFO spawned: 'app2' with pid 39
+2025-08-09 19:54:33,423 INFO spawned: 'app' with pid 38
+2025-08-09 19:54:33,440 INFO spawned: 'app2' with pid 39
+2025-08-09 19:54:34,124 WARN exited: app (exit status 1; not expected)
+2025-08-09 19:54:34,130 WARN exited: app2 (exit status 1; not expected)
+2025-08-09 19:54:34,142 WARN exited: app2 (exit status 1; not expected)
+2025-08-09 19:54:34,150 WARN exited: app (exit status 1; not expected)
+2025-08-09 19:54:37,150 INFO spawned: 'app' with pid 52
+2025-08-09 19:54:37,157 INFO spawned: 'app2' with pid 53
+2025-08-09 19:54:37,158 INFO spawned: 'app' with pid 52
+2025-08-09 19:54:37,167 INFO spawned: 'app2' with pid 53
+2025-08-09 19:54:37,965 WARN exited: app (exit status 1; not expected)
+2025-08-09 19:54:37,968 INFO gave up: app entered FATAL state, too many start retries too quickly
+2025-08-09 19:54:37,980 WARN exited: app2 (exit status 1; not expected)
+2025-08-09 19:54:37,984 WARN exited: app2 (exit status 1; not expected)
+2025-08-09 19:54:38,008 INFO gave up: app2 entered FATAL state, too many start retries too quickly
+2025-08-09 19:54:38,020 WARN exited: app (exit status 1; not expected)
+2025-08-09 19:54:38,983 INFO gave up: app2 entered FATAL state, too many start retries too quickly
+2025-08-09 19:54:39,022 INFO gave up: app entered FATAL state, too many start retries too quickly
+2025-08-09 20:07:15,547 WARN received SIGTERM indicating exit request
+2025-08-09 20:07:15,550 INFO waiting for nginx to die
+2025-08-09 20:07:15,567 WARN received SIGTERM indicating exit request
+2025-08-09 20:07:15,568 INFO waiting for nginx to die
+2025-08-09 20:07:15,599 INFO stopped: nginx (exit status 0)
+2025-08-09 20:07:15,615 INFO stopped: nginx (exit status 0)
+2025-08-09 20:07:18,493 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2025-08-09 20:07:18,502 INFO supervisord started with pid 1
+2025-08-09 20:07:18,517 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2025-08-09 20:07:18,527 INFO supervisord started with pid 1
+2025-08-09 20:07:19,508 INFO spawned: 'app' with pid 8
+2025-08-09 20:07:19,514 INFO spawned: 'app2' with pid 9
+2025-08-09 20:07:19,520 INFO spawned: 'nginx' with pid 10
+2025-08-09 20:07:19,534 INFO spawned: 'app' with pid 8
+2025-08-09 20:07:19,549 INFO spawned: 'app2' with pid 9
+2025-08-09 20:07:19,561 INFO spawned: 'nginx' with pid 10
+2025-08-09 20:07:21,449 INFO success: app entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-08-09 20:07:21,451 INFO success: app2 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-08-09 20:07:21,452 INFO success: nginx entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-08-09 20:07:21,478 INFO success: app entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-08-09 20:07:21,479 INFO success: app2 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-08-09 20:07:21,480 INFO success: nginx entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-08-09 20:35:57,697 WARN received SIGTERM indicating exit request
+2025-08-09 20:35:57,703 INFO waiting for app, app2, nginx to die
+2025-08-09 20:35:57,724 WARN received SIGTERM indicating exit request
+2025-08-09 20:35:57,726 INFO waiting for app, app2, nginx to die
+2025-08-09 20:35:57,776 INFO stopped: nginx (exit status 0)
+2025-08-09 20:35:57,794 INFO stopped: nginx (exit status 0)
+2025-08-09 20:35:57,794 WARN stopped: app2 (terminated by SIGTERM)
+2025-08-09 20:35:57,808 WARN stopped: app2 (terminated by SIGTERM)
+2025-08-09 20:35:57,810 WARN stopped: app (terminated by SIGTERM)
+2025-08-09 20:35:57,823 WARN stopped: app (terminated by SIGTERM)
+2025-08-09 20:36:00,476 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2025-08-09 20:36:00,477 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2025-08-09 20:36:00,488 INFO supervisord started with pid 1
+2025-08-09 20:36:00,490 INFO supervisord started with pid 1
+2025-08-09 20:36:01,494 INFO spawned: 'app' with pid 8
+2025-08-09 20:36:01,495 INFO spawned: 'app' with pid 9
+2025-08-09 20:36:01,498 INFO spawned: 'app2' with pid 9
+2025-08-09 20:36:01,500 INFO spawned: 'app2' with pid 10
+2025-08-09 20:36:01,503 INFO spawned: 'nginx' with pid 10
+2025-08-09 20:36:01,503 INFO spawned: 'nginx' with pid 11
+2025-08-09 20:36:03,188 INFO success: app entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-08-09 20:36:03,189 INFO success: app2 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-08-09 20:36:03,190 INFO success: nginx entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-08-09 20:36:03,194 INFO success: app entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-08-09 20:36:03,195 INFO success: app2 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-08-09 20:36:03,196 INFO success: nginx entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-08-09 20:36:56,096 WARN received SIGTERM indicating exit request
+2025-08-09 20:36:56,097 INFO waiting for app, app2, nginx to die
+2025-08-09 20:36:56,097 WARN received SIGTERM indicating exit request
+2025-08-09 20:36:56,098 INFO waiting for app, app2, nginx to die
+2025-08-09 20:36:56,132 INFO stopped: nginx (exit status 0)
+2025-08-09 20:36:56,136 WARN stopped: app2 (terminated by SIGTERM)
+2025-08-09 20:36:56,140 WARN stopped: app (terminated by SIGTERM)
+2025-08-09 20:36:56,148 INFO stopped: nginx (exit status 0)
+2025-08-09 20:36:56,153 WARN stopped: app2 (terminated by SIGTERM)
+2025-08-09 20:36:56,159 WARN stopped: app (terminated by SIGTERM)
+2025-08-09 20:36:57,953 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2025-08-09 20:36:57,961 INFO supervisord started with pid 1
+2025-08-09 20:36:58,002 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2025-08-09 20:36:58,008 INFO supervisord started with pid 1
+2025-08-09 20:36:58,964 INFO spawned: 'app' with pid 8
+2025-08-09 20:36:58,968 INFO spawned: 'app2' with pid 9
+2025-08-09 20:36:58,971 INFO spawned: 'nginx' with pid 10
+2025-08-09 20:36:59,011 INFO spawned: 'app' with pid 9
+2025-08-09 20:36:59,012 INFO spawned: 'app2' with pid 10
+2025-08-09 20:36:59,016 INFO spawned: 'nginx' with pid 11
+2025-08-09 20:37:00,172 INFO success: app entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-08-09 20:37:00,173 INFO success: app2 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-08-09 20:37:00,174 INFO success: nginx entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-08-09 20:37:00,177 INFO success: app entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-08-09 20:37:00,178 INFO success: app2 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-08-09 20:37:00,179 INFO success: nginx entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-08-09 20:41:31,539 WARN received SIGTERM indicating exit request
+2025-08-09 20:41:31,540 INFO waiting for app, app2, nginx to die
+2025-08-09 20:41:31,572 INFO stopped: nginx (exit status 0)
+2025-08-09 20:41:31,577 WARN stopped: app2 (terminated by SIGTERM)
+2025-08-09 20:41:31,582 WARN stopped: app (terminated by SIGTERM)
+2025-08-09 20:41:31,608 WARN received SIGTERM indicating exit request
+2025-08-09 20:41:31,609 INFO waiting for app, app2, nginx to die
+2025-08-09 20:41:31,660 INFO stopped: nginx (exit status 0)
+2025-08-09 20:41:31,664 WARN stopped: app2 (terminated by SIGTERM)
+2025-08-09 20:41:31,668 WARN stopped: app (terminated by SIGTERM)
+2025-08-09 20:41:33,361 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2025-08-09 20:41:33,373 INFO supervisord started with pid 1
+2025-08-09 20:41:33,389 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2025-08-09 20:41:33,395 INFO supervisord started with pid 1
+2025-08-09 20:41:34,379 INFO spawned: 'app' with pid 8
+2025-08-09 20:41:34,383 INFO spawned: 'app2' with pid 9
+2025-08-09 20:41:34,390 INFO spawned: 'nginx' with pid 10
+2025-08-09 20:41:34,399 INFO spawned: 'app' with pid 8
+2025-08-09 20:41:34,403 INFO spawned: 'app2' with pid 9
+2025-08-09 20:41:34,411 INFO spawned: 'nginx' with pid 10
+2025-08-09 20:41:35,921 INFO success: app entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-08-09 20:41:35,923 INFO success: app2 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-08-09 20:41:35,924 INFO success: nginx entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-08-09 20:41:36,169 INFO success: app entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-08-09 20:41:36,169 INFO success: app2 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-08-09 20:41:36,170 INFO success: nginx entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-08-09 20:43:55,967 WARN received SIGTERM indicating exit request
+2025-08-09 20:43:55,967 INFO waiting for app, app2, nginx to die
+2025-08-09 20:43:55,976 WARN received SIGTERM indicating exit request
+2025-08-09 20:43:55,977 INFO waiting for app, app2, nginx to die
+2025-08-09 20:43:56,005 INFO stopped: nginx (exit status 0)
+2025-08-09 20:43:56,010 WARN stopped: app2 (terminated by SIGTERM)
+2025-08-09 20:43:56,017 WARN stopped: app (terminated by SIGTERM)
+2025-08-09 20:43:56,022 INFO stopped: nginx (exit status 0)
+2025-08-09 20:43:56,029 WARN stopped: app2 (terminated by SIGTERM)
+2025-08-09 20:43:56,035 WARN stopped: app (terminated by SIGTERM)
+2025-08-09 20:43:57,731 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2025-08-09 20:43:57,739 INFO supervisord started with pid 1
+2025-08-09 20:43:57,794 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2025-08-09 20:43:57,800 INFO supervisord started with pid 1
+2025-08-09 20:43:58,742 INFO spawned: 'app' with pid 8
+2025-08-09 20:43:58,745 INFO spawned: 'app2' with pid 9
+2025-08-09 20:43:58,748 INFO spawned: 'nginx' with pid 10
+2025-08-09 20:43:58,814 INFO spawned: 'app' with pid 8
+2025-08-09 20:43:58,822 INFO spawned: 'app2' with pid 9
+2025-08-09 20:43:58,826 INFO spawned: 'nginx' with pid 10
+2025-08-09 20:44:00,446 INFO success: app entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-08-09 20:44:00,447 INFO success: app2 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-08-09 20:44:00,448 INFO success: nginx entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-08-09 20:44:00,475 INFO success: app entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-08-09 20:44:00,477 INFO success: app2 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-08-09 20:44:00,477 INFO success: nginx entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-08-09 20:44:36,452 WARN received SIGTERM indicating exit request
+2025-08-09 20:44:36,452 INFO waiting for app, app2, nginx to die
+2025-08-09 20:44:36,487 WARN received SIGTERM indicating exit request
+2025-08-09 20:44:36,488 INFO waiting for app, app2, nginx to die
+2025-08-09 20:44:36,500 INFO stopped: nginx (exit status 0)
+2025-08-09 20:44:36,504 WARN stopped: app2 (terminated by SIGTERM)
+2025-08-09 20:44:36,509 WARN stopped: app (terminated by SIGTERM)
+2025-08-09 20:44:36,540 INFO stopped: nginx (exit status 0)
+2025-08-09 20:44:36,546 WARN stopped: app2 (terminated by SIGTERM)
+2025-08-09 20:44:36,551 WARN stopped: app (terminated by SIGTERM)
+2025-08-09 20:44:38,406 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2025-08-09 20:44:38,416 INFO supervisord started with pid 1
+2025-08-09 20:44:38,460 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2025-08-09 20:44:38,472 INFO supervisord started with pid 1
+2025-08-09 20:44:39,421 INFO spawned: 'app' with pid 8
+2025-08-09 20:44:39,428 INFO spawned: 'app2' with pid 9
+2025-08-09 20:44:39,432 INFO spawned: 'nginx' with pid 10
+2025-08-09 20:44:39,476 INFO spawned: 'app' with pid 8
+2025-08-09 20:44:39,482 INFO spawned: 'app2' with pid 9
+2025-08-09 20:44:39,488 INFO spawned: 'nginx' with pid 10
+2025-08-09 20:44:41,158 INFO success: app entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-08-09 20:44:41,159 INFO success: app2 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-08-09 20:44:41,160 INFO success: nginx entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-08-09 20:44:41,186 INFO success: app entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-08-09 20:44:41,187 INFO success: app2 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-08-09 20:44:41,188 INFO success: nginx entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-08-09 20:47:25,198 WARN received SIGTERM indicating exit request
+2025-08-09 20:47:25,200 INFO waiting for app, app2, nginx to die
+2025-08-09 20:47:25,210 WARN received SIGTERM indicating exit request
+2025-08-09 20:47:25,211 INFO waiting for app, app2, nginx to die
+2025-08-09 20:47:25,262 INFO stopped: nginx (exit status 0)
+2025-08-09 20:47:25,262 INFO stopped: nginx (exit status 0)
+2025-08-09 20:47:25,268 WARN stopped: app2 (terminated by SIGTERM)
+2025-08-09 20:47:25,268 WARN stopped: app2 (terminated by SIGTERM)
+2025-08-09 20:47:25,273 WARN stopped: app (terminated by SIGTERM)
+2025-08-09 20:47:25,274 WARN stopped: app (terminated by SIGTERM)
+2025-08-09 20:47:26,980 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2025-08-09 20:47:26,986 INFO supervisord started with pid 1
+2025-08-09 20:47:27,027 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2025-08-09 20:47:27,035 INFO supervisord started with pid 1
+2025-08-09 20:47:27,990 INFO spawned: 'app' with pid 8
+2025-08-09 20:47:27,993 INFO spawned: 'app2' with pid 9
+2025-08-09 20:47:27,997 INFO spawned: 'nginx' with pid 10
+2025-08-09 20:47:28,038 INFO spawned: 'app' with pid 8
+2025-08-09 20:47:28,040 INFO spawned: 'app2' with pid 9
+2025-08-09 20:47:28,043 INFO spawned: 'nginx' with pid 10
+2025-08-09 20:47:29,462 INFO success: app entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-08-09 20:47:29,463 INFO success: app2 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-08-09 20:47:29,464 INFO success: nginx entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-08-09 20:47:29,528 INFO success: app entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-08-09 20:47:29,529 INFO success: app2 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-08-09 20:47:29,530 INFO success: nginx entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-08-09 20:50:21,510 WARN received SIGTERM indicating exit request
+2025-08-09 20:50:21,512 INFO waiting for app, app2, nginx to die
+2025-08-09 20:50:21,570 INFO stopped: nginx (exit status 0)
+2025-08-09 20:50:21,575 WARN stopped: app2 (terminated by SIGTERM)
+2025-08-09 20:50:21,580 WARN stopped: app (terminated by SIGTERM)
+2025-08-09 20:50:21,584 WARN received SIGTERM indicating exit request
+2025-08-09 20:50:21,585 INFO waiting for app, app2, nginx to die
+2025-08-09 20:50:21,646 INFO stopped: nginx (exit status 0)
+2025-08-09 20:50:21,651 WARN stopped: app2 (terminated by SIGTERM)
+2025-08-09 20:50:21,655 WARN stopped: app (terminated by SIGTERM)
+2025-08-09 20:50:23,419 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2025-08-09 20:50:23,433 INFO supervisord started with pid 1
+2025-08-09 20:50:23,504 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2025-08-09 20:50:23,512 INFO supervisord started with pid 1
+2025-08-09 20:50:24,436 INFO spawned: 'app' with pid 8
+2025-08-09 20:50:24,439 INFO spawned: 'app2' with pid 9
+2025-08-09 20:50:24,449 INFO spawned: 'nginx' with pid 10
+2025-08-09 20:50:24,516 INFO spawned: 'app' with pid 8
+2025-08-09 20:50:24,520 INFO spawned: 'app2' with pid 9
+2025-08-09 20:50:24,524 INFO spawned: 'nginx' with pid 10
+2025-08-09 20:50:26,058 INFO success: app entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-08-09 20:50:26,059 INFO success: app2 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-08-09 20:50:26,060 INFO success: nginx entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-08-09 20:50:26,094 INFO success: app entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-08-09 20:50:26,095 INFO success: app2 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-08-09 20:50:26,095 INFO success: nginx entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-08-09 20:51:15,065 WARN received SIGTERM indicating exit request
+2025-08-09 20:51:15,065 INFO waiting for app, app2, nginx to die
+2025-08-09 20:51:15,101 WARN received SIGTERM indicating exit request
+2025-08-09 20:51:15,102 INFO waiting for app, app2, nginx to die
+2025-08-09 20:51:15,124 INFO stopped: nginx (exit status 0)
+2025-08-09 20:51:15,137 WARN stopped: app2 (terminated by SIGTERM)
+2025-08-09 20:51:15,143 WARN stopped: app (terminated by SIGTERM)
+2025-08-09 20:51:15,185 INFO stopped: nginx (exit status 0)
+2025-08-09 20:51:15,197 WARN stopped: app2 (terminated by SIGTERM)
+2025-08-09 20:51:15,204 WARN stopped: app (terminated by SIGTERM)
+2025-08-09 20:51:16,856 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2025-08-09 20:51:16,866 INFO supervisord started with pid 1
+2025-08-09 20:51:16,932 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2025-08-09 20:51:16,941 INFO supervisord started with pid 1
+2025-08-09 20:51:17,869 INFO spawned: 'app' with pid 8
+2025-08-09 20:51:17,872 INFO spawned: 'app2' with pid 9
+2025-08-09 20:51:17,875 INFO spawned: 'nginx' with pid 10
+2025-08-09 20:51:17,944 INFO spawned: 'app' with pid 8
+2025-08-09 20:51:17,948 INFO spawned: 'app2' with pid 9
+2025-08-09 20:51:17,954 INFO spawned: 'nginx' with pid 10
+2025-08-09 20:51:19,709 INFO success: app entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-08-09 20:51:19,711 INFO success: app2 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-08-09 20:51:19,711 INFO success: nginx entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-08-09 20:51:19,760 INFO success: app entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-08-09 20:51:19,762 INFO success: app2 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-08-09 20:51:19,763 INFO success: nginx entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-08-09 20:53:53,810 WARN received SIGTERM indicating exit request
+2025-08-09 20:53:53,815 INFO waiting for app, app2, nginx to die
+2025-08-09 20:53:53,872 INFO stopped: nginx (exit status 0)
+2025-08-09 20:53:53,878 WARN stopped: app2 (terminated by SIGTERM)
+2025-08-09 20:53:53,883 WARN stopped: app (terminated by SIGTERM)
+2025-08-09 20:53:54,758 WARN received SIGTERM indicating exit request
+2025-08-09 20:53:54,759 INFO waiting for app, app2, nginx to die
+2025-08-09 20:53:54,821 INFO stopped: nginx (exit status 0)
+2025-08-09 20:53:54,826 WARN stopped: app2 (terminated by SIGTERM)
+2025-08-09 20:53:54,830 WARN stopped: app (terminated by SIGTERM)
+2025-08-09 20:53:56,413 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2025-08-09 20:53:56,431 INFO supervisord started with pid 1
+2025-08-09 20:53:56,486 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2025-08-09 20:53:56,495 INFO supervisord started with pid 1
+2025-08-09 20:53:57,434 INFO spawned: 'app' with pid 8
+2025-08-09 20:53:57,437 INFO spawned: 'app2' with pid 9
+2025-08-09 20:53:57,439 INFO spawned: 'nginx' with pid 10
+2025-08-09 20:53:57,498 INFO spawned: 'app' with pid 9
+2025-08-09 20:53:57,501 INFO spawned: 'app2' with pid 10
+2025-08-09 20:53:57,504 INFO spawned: 'nginx' with pid 11
+2025-08-09 20:53:58,890 INFO success: app entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-08-09 20:53:58,891 INFO success: app2 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-08-09 20:53:58,891 INFO success: nginx entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-08-09 20:53:58,966 INFO success: app entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-08-09 20:53:58,967 INFO success: app2 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-08-09 20:53:58,967 INFO success: nginx entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-08-09 21:04:52,168 WARN received SIGTERM indicating exit request
+2025-08-09 21:04:52,169 INFO waiting for app, app2, nginx to die
+2025-08-09 21:04:52,198 INFO stopped: nginx (exit status 0)
+2025-08-09 21:04:52,203 WARN stopped: app2 (terminated by SIGTERM)
+2025-08-09 21:04:52,207 WARN stopped: app (terminated by SIGTERM)
+2025-08-09 21:04:52,230 WARN received SIGTERM indicating exit request
+2025-08-09 21:04:52,231 INFO waiting for app, app2, nginx to die
+2025-08-09 21:04:52,282 INFO stopped: nginx (exit status 0)
+2025-08-09 21:04:52,290 WARN stopped: app2 (terminated by SIGTERM)
+2025-08-09 21:04:52,295 WARN stopped: app (terminated by SIGTERM)
+2025-08-09 21:04:53,960 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2025-08-09 21:04:53,968 INFO supervisord started with pid 1
+2025-08-09 21:04:53,993 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2025-08-09 21:04:54,001 INFO supervisord started with pid 1
+2025-08-09 21:04:54,972 INFO spawned: 'app' with pid 8
+2025-08-09 21:04:54,978 INFO spawned: 'app2' with pid 9
+2025-08-09 21:04:54,984 INFO spawned: 'nginx' with pid 10
+2025-08-09 21:04:55,004 INFO spawned: 'app' with pid 8
+2025-08-09 21:04:55,007 INFO spawned: 'app2' with pid 9
+2025-08-09 21:04:55,010 INFO spawned: 'nginx' with pid 10
+2025-08-09 21:04:56,160 INFO success: app entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-08-09 21:04:56,160 INFO success: app2 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-08-09 21:04:56,161 INFO success: nginx entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-08-09 21:04:56,529 INFO success: app entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-08-09 21:04:56,530 INFO success: app2 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-08-09 21:04:56,530 INFO success: nginx entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-08-09 21:13:45,699 WARN received SIGTERM indicating exit request
+2025-08-09 21:13:45,700 INFO waiting for app, app2, nginx to die
+2025-08-09 21:13:45,723 WARN received SIGTERM indicating exit request
+2025-08-09 21:13:45,724 INFO waiting for app, app2, nginx to die
+2025-08-09 21:13:45,755 INFO stopped: nginx (exit status 0)
+2025-08-09 21:13:45,760 WARN stopped: app2 (terminated by SIGTERM)
+2025-08-09 21:13:45,764 WARN stopped: app (terminated by SIGTERM)
+2025-08-09 21:13:45,776 INFO stopped: nginx (exit status 0)
+2025-08-09 21:13:45,785 WARN stopped: app2 (terminated by SIGTERM)
+2025-08-09 21:13:45,792 WARN stopped: app (terminated by SIGTERM)
+2025-08-09 21:13:47,524 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2025-08-09 21:13:47,530 INFO supervisord started with pid 1
+2025-08-09 21:13:47,579 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2025-08-09 21:13:47,586 INFO supervisord started with pid 1
+2025-08-09 21:13:48,533 INFO spawned: 'app' with pid 8
+2025-08-09 21:13:48,535 INFO spawned: 'app2' with pid 9
+2025-08-09 21:13:48,537 INFO spawned: 'nginx' with pid 10
+2025-08-09 21:13:48,589 INFO spawned: 'app' with pid 8
+2025-08-09 21:13:48,592 INFO spawned: 'app2' with pid 9
+2025-08-09 21:13:48,595 INFO spawned: 'nginx' with pid 10
+2025-08-09 21:13:50,008 INFO success: app entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-08-09 21:13:50,009 INFO success: app2 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-08-09 21:13:50,010 INFO success: nginx entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-08-09 21:13:50,063 INFO success: app entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-08-09 21:13:50,065 INFO success: app2 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-08-09 21:13:50,066 INFO success: nginx entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-08-09 21:16:32,061 WARN received SIGTERM indicating exit request
+2025-08-09 21:16:32,062 INFO waiting for app, app2, nginx to die
+2025-08-09 21:16:32,114 WARN received SIGTERM indicating exit request
+2025-08-09 21:16:32,114 INFO stopped: nginx (exit status 0)
+2025-08-09 21:16:32,114 INFO waiting for app, app2, nginx to die
+2025-08-09 21:16:32,119 WARN stopped: app2 (terminated by SIGTERM)
+2025-08-09 21:16:32,123 WARN stopped: app (terminated by SIGTERM)
+2025-08-09 21:16:32,170 INFO stopped: nginx (exit status 0)
+2025-08-09 21:16:32,175 WARN stopped: app2 (terminated by SIGTERM)
+2025-08-09 21:16:32,179 WARN stopped: app (terminated by SIGTERM)
+2025-08-09 21:16:33,765 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2025-08-09 21:16:33,772 INFO supervisord started with pid 1
+2025-08-09 21:16:33,830 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2025-08-09 21:16:33,837 INFO supervisord started with pid 1
+2025-08-09 21:16:34,775 INFO spawned: 'app' with pid 9
+2025-08-09 21:16:34,776 INFO spawned: 'app2' with pid 10
+2025-08-09 21:16:34,778 INFO spawned: 'nginx' with pid 11
+2025-08-09 21:16:34,840 INFO spawned: 'app' with pid 8
+2025-08-09 21:16:34,843 INFO spawned: 'app2' with pid 9
+2025-08-09 21:16:34,847 INFO spawned: 'nginx' with pid 10
+2025-08-09 21:16:36,160 INFO success: app entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-08-09 21:16:36,161 INFO success: app2 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-08-09 21:16:36,162 INFO success: nginx entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-08-09 21:16:36,374 INFO success: app entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-08-09 21:16:36,375 INFO success: app2 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-08-09 21:16:36,377 INFO success: nginx entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-08-09 21:25:24,585 WARN received SIGTERM indicating exit request
+2025-08-09 21:25:24,587 INFO waiting for app, app2, nginx to die
+2025-08-09 21:25:24,597 WARN received SIGTERM indicating exit request
+2025-08-09 21:25:24,598 INFO waiting for app, app2, nginx to die
+2025-08-09 21:25:24,633 INFO stopped: nginx (exit status 0)
+2025-08-09 21:25:24,641 WARN stopped: app2 (terminated by SIGTERM)
+2025-08-09 21:25:24,648 INFO stopped: nginx (exit status 0)
+2025-08-09 21:25:24,652 WARN stopped: app (terminated by SIGTERM)
+2025-08-09 21:25:24,655 WARN stopped: app2 (terminated by SIGTERM)
+2025-08-09 21:25:24,662 WARN stopped: app (terminated by SIGTERM)
+2025-08-09 21:25:26,541 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2025-08-09 21:25:26,552 INFO supervisord started with pid 1
+2025-08-09 21:25:26,614 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2025-08-09 21:25:26,623 INFO supervisord started with pid 1
+2025-08-09 21:25:27,556 INFO spawned: 'app' with pid 8
+2025-08-09 21:25:27,561 INFO spawned: 'app2' with pid 9
+2025-08-09 21:25:27,564 INFO spawned: 'nginx' with pid 10
+2025-08-09 21:25:27,627 INFO spawned: 'app' with pid 8
+2025-08-09 21:25:27,629 INFO spawned: 'app2' with pid 9
+2025-08-09 21:25:27,632 INFO spawned: 'nginx' with pid 10
+2025-08-09 21:25:29,159 INFO success: app entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-08-09 21:25:29,160 INFO success: app2 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-08-09 21:25:29,160 INFO success: nginx entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-08-09 21:25:29,211 INFO success: app entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-08-09 21:25:29,211 INFO success: app2 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-08-09 21:25:29,212 INFO success: nginx entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-08-09 21:28:46,267 WARN received SIGTERM indicating exit request
+2025-08-09 21:28:46,268 INFO waiting for app, app2, nginx to die
+2025-08-09 21:28:46,321 INFO stopped: nginx (exit status 0)
+2025-08-09 21:28:46,329 WARN stopped: app2 (terminated by SIGTERM)
+2025-08-09 21:28:46,335 WARN stopped: app (terminated by SIGTERM)
+2025-08-09 21:28:46,344 WARN received SIGTERM indicating exit request
+2025-08-09 21:28:46,346 INFO waiting for app, app2, nginx to die
+2025-08-09 21:28:46,407 INFO stopped: nginx (exit status 0)
+2025-08-09 21:28:46,416 WARN stopped: app2 (terminated by SIGTERM)
+2025-08-09 21:28:46,426 WARN stopped: app (terminated by SIGTERM)
