@@ -1,8 +1,7 @@
-version: '3.8'
-
 services:
   redis:
     image: redis:7-alpine
+    container_name: gossip-redis
     ports:
       - "6379:6379"
     volumes:
@@ -15,9 +14,12 @@ services:
       retries: 5
 
   app:
-    build: .
+    build:
+      context: .
+    image: gossip-chat-app
+    container_name: gossip-app1
     ports:
-      - "5000:80"  # app container exposes nginx port 80 to host port 5000
+      - "5000:80" # maps nginx inside container to localhost:5000
     depends_on:
       redis:
         condition: service_healthy
@@ -31,9 +33,12 @@ services:
       - /app/node_modules
 
   app2:
-    build: .
+    build:
+      context: .
+    image: gossip-chat-app
+    container_name: gossip-app2
     ports:
-      - "5001:80"  # app2 exposes nginx port 80 to host port 5001
+      - "5001:80" # maps nginx inside container to localhost:5001
     depends_on:
       redis:
         condition: service_healthy
@@ -48,6 +53,7 @@ services:
 
   nginx:
     image: nginx:alpine
+    container_name: gossip-nginx
     ports:
       - "80:80"
     depends_on:
